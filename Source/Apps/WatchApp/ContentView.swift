@@ -11,14 +11,14 @@ import CoreData
 
 class ContentViewModel: NSObject, ObservableObject, WCSessionDelegate {
     
-    @Published var notes: [SimpleNote] = []
-    
+    @Published var notes: [Note] = []
+    var session: WCSession? = nil
     override init() {
         super.init()
         if WCSession.isSupported() {
-            let session = WCSession.default
-            session.delegate = self
-            session.activate()
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
         }
     }
     
@@ -26,10 +26,9 @@ class ContentViewModel: NSObject, ObservableObject, WCSessionDelegate {
     func fetchNotes(_ session: WCSession) {
         let receivedApplicationContext = session.receivedApplicationContext
         
-        var _temp: [SimpleNote] = []
+        var _temp: [Note] = []
         if let receivedNotes = receivedApplicationContext["notes"] as? [[String : Any]] {
-            _temp = Array.from(dictionaryArray: receivedNotes)
-            
+            _temp = [Note].fromDictionaryArray(receivedNotes) ?? []
         }
         
         DispatchQueue.main.async {
@@ -50,6 +49,17 @@ class ContentViewModel: NSObject, ObservableObject, WCSessionDelegate {
         fetchNotes(session)
     }
     
+    func synchronize() {
+
+        if let session = session {
+            do {
+                let notesData = notes.toDictionaryArray()
+                try session.updateApplicationContext(["notes": "иди в хуй"])
+            } catch {
+                print("Ошибка при отправке данных на Apple Watch: \(error)")
+            }
+        }
+    }
 
 }
 
@@ -60,19 +70,24 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-           
+               
+                Button {
+                    model.synchronize()
+                } label: {
+                    Text("synchronize")
+                }
+
+                
                 Section {
                     ForEach(model.notes, id: \.id) { note in
-                        VStack {
+                        if note.noteType == "checkbox" {
+                            CheckBoxView(text: note.text ?? "")
+                        } else {
                             Text(note.text ?? "-")
-                            HStack {
-                                Text("type: ")
-                                Text(note.noteType ?? "-")
-                            }.font(.footnote)
                         }
                     }
                 } header: {
-                    Text("v0.11")
+                    Text("v0.14")
                 } footer: {
                     Text("Edit notes in ios app")
                 }

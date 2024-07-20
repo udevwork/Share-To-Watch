@@ -9,11 +9,9 @@ import SwiftUI
 
 import SwiftUI
 import CoreData
+import SwiftData
 
 struct NoteEditorView: View {
-    
-    @Environment(\.managedObjectContext)
-    private var viewContext
     
     @State 
     private var text: String = ""
@@ -26,12 +24,16 @@ struct NoteEditorView: View {
     
     @Binding 
     var note: Note?
+        
+    @State
+    var checkbox: Bool = false
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Title")) {
                     TextEditor(text: $text)
+                    Toggle(isOn: $checkbox, label: {Text("checkbox")})
                 }
             }
             .toolbar(content: {
@@ -52,20 +54,19 @@ struct NoteEditorView: View {
         }
     }
     
-    private var saveButton: some View {
+    @MainActor private var saveButton: some View {
         Button("Save") {
+            let container = try! ModelContainer(for: Note.self, configurations: ModelConfiguration())
             if let note = note {
                 note.text = text
+                note.noteType =  self.checkbox ? "checkbox" : ""
             } else {
-                let newNote = Note(context: viewContext)
-                newNote.text = text
+                let note = Note(text: text)
+                note.noteType =  self.checkbox ? "checkbox" : ""
+                container.mainContext.insert(note)
             }
-            do {
-                try viewContext.save()
-            } catch {
-                // Handle the Core Data error
-                print("Failed to save note: \(error.localizedDescription)")
-            }
+            
+            try! container.mainContext.save()
             presentationMode.wrappedValue.dismiss()
         }
     }

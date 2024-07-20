@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct ShareToWatchApp: App {
-    @StateObject private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ContentView()
-                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                ContentView().modelContainer(for: Note.self)
             }
         }
     }

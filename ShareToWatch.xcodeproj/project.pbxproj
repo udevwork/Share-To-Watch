@@ -17,25 +17,16 @@
 		927EAEF82C499FD3007709AD /* Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 92854C762C4993E700E45F88 /* Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		927EAEFD2C49A23E007709AD /* ShareExt.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9258E6B32C4664F300B6DC82 /* ShareExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		927EAF012C49A41A007709AD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926015722C47CF6C00212AB7 /* Note.swift */; };
-		927EAF022C49A41B007709AD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926015722C47CF6C00212AB7 /* Note.swift */; };
-		927EAF032C49A89F007709AD /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */; };
-		927EAF042C49A89F007709AD /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */; };
-		927EAF062C49AF49007709AD /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EAF052C49AF49007709AD /* CoreDataHelper.swift */; };
-		927EAF072C49AF49007709AD /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EAF052C49AF49007709AD /* CoreDataHelper.swift */; };
-		927EAF082C49AF49007709AD /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EAF052C49AF49007709AD /* CoreDataHelper.swift */; };
-		92852B912C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */; };
-		92852B922C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */; };
-		92852B932C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */; };
 		92852B962C4BC2AB009779F2 /* NoteEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92852B952C4BC2AB009779F2 /* NoteEdit.swift */; };
-		92854BF02C483E7900E45F88 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */; };
-		92854BF12C483E7900E45F88 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */; };
-		92854BF22C484E9500E45F88 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */; };
-		92854BF32C484E9500E45F88 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */; };
 		92854C7C2C4993E700E45F88 /* WatchExtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854C7B2C4993E700E45F88 /* WatchExtApp.swift */; };
 		92854C7E2C4993E700E45F88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854C7D2C4993E700E45F88 /* ContentView.swift */; };
 		92854C802C4993E900E45F88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92854C7F2C4993E900E45F88 /* Assets.xcassets */; };
 		92854C832C4993E900E45F88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92854C822C4993E900E45F88 /* Preview Assets.xcassets */; };
-		92D3461B2C4BE02700AE74FD /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461A2C4BE02700AE74FD /* Note+CoreDataProperties.swift */; };
+		92D346202C4C156500AE74FD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
+		92D346212C4C160D00AE74FD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
+		92D346252C4C1FDC00AE74FD /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D346242C4C1FDC00AE74FD /* CheckboxView.swift */; };
+		92D346272C4C205F00AE74FD /* WatchNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461C2C4C082900AE74FD /* WatchNote.swift */; };
+		92D346282C4C208C00AE74FD /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D346242C4C1FDC00AE74FD /* CheckboxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,18 +102,16 @@
 		9258E6C32C466DC400B6DC82 /* ShareExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExt.entitlements; sourceTree = "<group>"; };
 		9260156F2C47052300212AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		926015722C47CF6C00212AB7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		927EAF052C49AF49007709AD /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		92852B902C4BBF55009779F2 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		92852B952C4BC2AB009779F2 /* NoteEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEdit.swift; sourceTree = "<group>"; };
-		92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
-		92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92854C762C4993E700E45F88 /* Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92854C7B2C4993E700E45F88 /* WatchExtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchExtApp.swift; sourceTree = "<group>"; };
 		92854C7D2C4993E700E45F88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92854C7F2C4993E900E45F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92854C822C4993E900E45F88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92854C8B2C49940B00E45F88 /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchApp.entitlements; sourceTree = "<group>"; };
-		92D3461A2C4BE02700AE74FD /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "Source/Shared/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		92D3461C2C4C082900AE74FD /* WatchNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNote.swift; sourceTree = "<group>"; };
+		92D3461E2C4C152500AE74FD /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		92D346242C4C1FDC00AE74FD /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +142,6 @@
 		9258E6952C4664B800B6DC82 = {
 			isa = PBXGroup;
 			children = (
-				92D3461A2C4BE02700AE74FD /* Note+CoreDataProperties.swift */,
 				92852B8C2C4BBC9D009779F2 /* Source */,
 				9258E69F2C4664B800B6DC82 /* Products */,
 				92854BDC2C48330100E45F88 /* Frameworks */,
@@ -206,7 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				926015722C47CF6C00212AB7 /* Note.swift */,
-				927EAF052C49AF49007709AD /* CoreDataHelper.swift */,
+				92D3461C2C4C082900AE74FD /* WatchNote.swift */,
+				92D3461E2C4C152500AE74FD /* DataContainer.swift */,
 			);
 			path = DTOModels;
 			sourceTree = "<group>";
@@ -233,10 +222,8 @@
 		92852B8E2C4BBCC4009779F2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */,
-				92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */,
-				92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */,
 				926015712C47CF5000212AB7 /* DTOModels */,
+				92D346242C4C1FDC00AE74FD /* CheckboxView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -417,14 +404,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9258E6A42C4664B800B6DC82 /* ContentView.swift in Sources */,
-				92854BF02C483E7900E45F88 /* Note+CoreDataClass.swift in Sources */,
-				92854BF12C483E7900E45F88 /* Note+CoreDataProperties.swift in Sources */,
-				92852B912C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */,
-				927EAF062C49AF49007709AD /* CoreDataHelper.swift in Sources */,
+				92D346202C4C156500AE74FD /* DataContainer.swift in Sources */,
 				92852B962C4BC2AB009779F2 /* NoteEdit.swift in Sources */,
+				92D346282C4C208C00AE74FD /* CheckboxView.swift in Sources */,
 				9258E6A22C4664B800B6DC82 /* ShareToWatchApp.swift in Sources */,
 				926015732C47CF6C00212AB7 /* Note.swift in Sources */,
-				92D3461B2C4BE02700AE74FD /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,12 +416,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927EAF072C49AF49007709AD /* CoreDataHelper.swift in Sources */,
-				92852B922C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */,
 				927EAF012C49A41A007709AD /* Note.swift in Sources */,
-				92854BF22C484E9500E45F88 /* Note+CoreDataProperties.swift in Sources */,
-				92854BF32C484E9500E45F88 /* Note+CoreDataClass.swift in Sources */,
 				9258E6B62C4664F300B6DC82 /* ShareViewController.swift in Sources */,
+				92D346212C4C160D00AE74FD /* DataContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,13 +426,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927EAF082C49AF49007709AD /* CoreDataHelper.swift in Sources */,
 				92854C7E2C4993E700E45F88 /* ContentView.swift in Sources */,
 				92854C7C2C4993E700E45F88 /* WatchExtApp.swift in Sources */,
-				92852B932C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */,
-				927EAF032C49A89F007709AD /* Note+CoreDataProperties.swift in Sources */,
-				927EAF042C49A89F007709AD /* Note+CoreDataClass.swift in Sources */,
-				927EAF022C49A41B007709AD /* Note.swift in Sources */,
+				92D346252C4C1FDC00AE74FD /* CheckboxView.swift in Sources */,
+				92D346272C4C205F00AE74FD /* WatchNote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +603,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.WatchApp;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp.WatchApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -661,7 +639,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.WatchApp;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp.WatchApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -838,19 +816,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				92852B902C4BBF55009779F2 /* Notes.xcdatamodel */,
-			);
-			currentVersion = 92852B902C4BBF55009779F2 /* Notes.xcdatamodel */;
-			path = Notes.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9258E6962C4664B800B6DC82 /* Project object */;
 }

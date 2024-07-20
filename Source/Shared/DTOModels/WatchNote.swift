@@ -1,12 +1,8 @@
 import Foundation
-import SwiftData
 
-@Model
 class Note: Codable {
     
-    @Attribute(.unique)
     let id = UUID().uuidString
-    
     var text: String?
     var noteType: String?
     
@@ -22,8 +18,8 @@ class Note: Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        text = try container.decode(String.self, forKey: .text)
-        noteType = try container.decode(String.self, forKey: .noteType)
+        text = try container.decode(String?.self, forKey: .text)
+        noteType = try container.decode(String?.self, forKey: .noteType)
     }
     
     func encode(to encoder: Encoder) throws {

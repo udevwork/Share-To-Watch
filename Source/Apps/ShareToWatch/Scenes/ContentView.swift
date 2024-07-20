@@ -7,27 +7,8 @@
 
 import SwiftUI
 import WatchConnectivity
-import CoreData
+import SwiftData
 
-class DataController: ObservableObject {
-    static let shared = DataController()
-    
-    let container: NSPersistentContainer
-    
-    init() {
-        
-        container = NSPersistentContainer(name: "Notes")
-        let storeURL = URL.storeURL(for: "group.01lab", databaseName: "Notes")
-        let storeDescription = NSPersistentStoreDescription(url: storeURL)
-        container.persistentStoreDescriptions = [storeDescription]
-        
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                print("Core Data failed to load: \(error.localizedDescription)")
-            }
-        }
-    }
-}
 
 class ContentViewModel: NSObject, ObservableObject, WCSessionDelegate {
     
@@ -44,36 +25,51 @@ class ContentViewModel: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) { }
-    func sessionDidBecomeInactive(_ session: WCSession) { }
-    func sessionDidDeactivate(_ session: WCSession) { }
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) { 
+        fetchNotes(session)
+    }
+    func sessionDidBecomeInactive(_ session: WCSession) { 
+        
+    }
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    // Попытка извлечь данные из последнего контекста приложения
+    func fetchNotes(_ session: WCSession) {
+        let receivedApplicationContext = session.receivedApplicationContext
+        
+        if let receivedNotes = receivedApplicationContext["notes"] as? [[String : Any]] {
+            
+        }
+        
+    
+    }
     
     func synchronize() {
+
         if let session = session, session.isPaired && session.isWatchAppInstalled {
             do {
                 let notesData = notes.toDictionaryArray()
-                try session.updateApplicationContext(["notes": notesData])
+                try session.updateApplicationContext(["notes": notesData ?? []])
             } catch {
                 print("Ошибка при отправке данных на Apple Watch: \(error)")
             }
         }
     }
     
-    func fetchNotes() {
-        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
-        notes = try! DataController.shared.container.viewContext.fetch(fetchRequest)
-        synchronize()
+    @MainActor func fetchNotes() {
+        let container = DataContainer.context.container
+        self.notes = try! container.mainContext.fetch(SwiftData.FetchDescriptor<Note>())
     }
     
-    func createNewNote(text: String) {
-        let core = CoreData.shared
-        let context = core.persistentContainer.viewContext
-        let newNote = Note(context: context)
-        newNote.text = text
-        newNote.noteType = "test type"
-        core.saveContext()
-        fetchNotes()
-        synchronize()
+    @MainActor func createNewNote(text: String) {
+        let note = Note(text: "fuck", noteType: "you")
+
+        let container = DataContainer.context.container
+        container.mainContext.insert(note)
+        try! container.mainContext.save()
+        self.notes.append(note)
     }
 }
 
@@ -84,8 +80,8 @@ struct ContentView: View {
 
     @StateObject
     var model = ContentViewModel()
-        
-    @State 
+    
+    @State
     private var showingEditor = false
     
     @State
@@ -95,11 +91,18 @@ struct ContentView: View {
         
         List {
             Section {
+                
                 Button(action: {
                     selectedNote = nil
                     showingEditor = true
                 }, label: {
                     Text("Create new note")
+                })
+                
+                Button(action: {
+                    model.createNewNote(text: "sdf")
+                }, label: {
+                    Text("Create test note")
                 })
                 
                 Button(action: {
@@ -117,14 +120,20 @@ struct ContentView: View {
                         selectedNote = note
                         showingEditor = true
                     } label: {
-                        Text(note.text ?? "no text")
+                        
+                        if note.noteType == "checkbox" {
+                        CheckBoxView(text: note.text ?? "no text")
+                        } else {
+                            Text(note.text ?? "no text")
+                        }
+                        
                     }.foregroundStyle(Color.primary)
                 }.onDelete(perform: delete)
             } header: {
                 Text("Notes")
             }
 
-        } .refreshable {
+        }.refreshable {
             model.fetchNotes()
         } 
         .onChange(of: scenePhase) { oldPhase, newPhase in
@@ -142,23 +151,20 @@ struct ContentView: View {
             model.synchronize()
         }, content: {
             NoteEditorView(note: $selectedNote)
-                .environment(
-                    \.managedObjectContext,
-                     DataController.shared.container.viewContext
-                )
+               
         })
         .navigationTitle("Notes")
     }
 
 
-    // Для использования с жестом swipe для удаления
-    func delete(at offsets: IndexSet) {
-        for index in offsets {
-            let note = model.notes[index]
-            DataController.shared.container.viewContext.delete(note)
+    func delete(_ indexSet: IndexSet) {
+        let modelContext = DataContainer.context
+        
+        for i in indexSet {
+            let note = model.notes[i]
+            modelContext.delete(note)
         }
-        try? DataController.shared.container.viewContext.save()
-        model.fetchNotes()
+        try! modelContext.save()
     }
     
 }

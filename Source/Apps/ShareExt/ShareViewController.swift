@@ -13,13 +13,12 @@ import WatchConnectivity
 
 
 class ShareViewViewModel {
-    func saveTextToCoreData(text: String) {
-        let core = CoreData.shared
-        
-        let context = core.persistentContainer.viewContext
-        let newNote = Note(context: context)
-        newNote.text = text
-        core.saveContext()
+    @MainActor func saveTextToCoreData(text: String) {
+        let container = DataContainer.context.container
+        let note = Note(text: text, noteType: "you")
+
+        container.mainContext.insert(note)
+        try! container.mainContext.save()
     }
 }
 
