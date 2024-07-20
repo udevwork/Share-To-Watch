@@ -11,18 +11,136 @@
 		9258E6A42C4664B800B6DC82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258E6A32C4664B800B6DC82 /* ContentView.swift */; };
 		9258E6A62C4664BA00B6DC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9258E6A52C4664BA00B6DC82 /* Assets.xcassets */; };
 		9258E6A92C4664BA00B6DC82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9258E6A82C4664BA00B6DC82 /* Preview Assets.xcassets */; };
+		9258E6B62C4664F300B6DC82 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258E6B52C4664F300B6DC82 /* ShareViewController.swift */; };
+		9258E6B92C4664F300B6DC82 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258E6B72C4664F300B6DC82 /* MainInterface.storyboard */; };
+		926015732C47CF6C00212AB7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926015722C47CF6C00212AB7 /* Note.swift */; };
+		927EAEF82C499FD3007709AD /* Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 92854C762C4993E700E45F88 /* Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		927EAEFD2C49A23E007709AD /* ShareExt.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9258E6B32C4664F300B6DC82 /* ShareExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		927EAF012C49A41A007709AD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926015722C47CF6C00212AB7 /* Note.swift */; };
+		927EAF022C49A41B007709AD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926015722C47CF6C00212AB7 /* Note.swift */; };
+		927EAF032C49A89F007709AD /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */; };
+		927EAF042C49A89F007709AD /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */; };
+		927EAF062C49AF49007709AD /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EAF052C49AF49007709AD /* CoreDataHelper.swift */; };
+		927EAF072C49AF49007709AD /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EAF052C49AF49007709AD /* CoreDataHelper.swift */; };
+		927EAF082C49AF49007709AD /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EAF052C49AF49007709AD /* CoreDataHelper.swift */; };
+		92852B912C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */; };
+		92852B922C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */; };
+		92852B932C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */; };
+		92852B962C4BC2AB009779F2 /* NoteEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92852B952C4BC2AB009779F2 /* NoteEdit.swift */; };
+		92854BF02C483E7900E45F88 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */; };
+		92854BF12C483E7900E45F88 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */; };
+		92854BF22C484E9500E45F88 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */; };
+		92854BF32C484E9500E45F88 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */; };
+		92854C7C2C4993E700E45F88 /* WatchExtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854C7B2C4993E700E45F88 /* WatchExtApp.swift */; };
+		92854C7E2C4993E700E45F88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92854C7D2C4993E700E45F88 /* ContentView.swift */; };
+		92854C802C4993E900E45F88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92854C7F2C4993E900E45F88 /* Assets.xcassets */; };
+		92854C832C4993E900E45F88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92854C822C4993E900E45F88 /* Preview Assets.xcassets */; };
+		92D3461B2C4BE02700AE74FD /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461A2C4BE02700AE74FD /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		927EAEF92C49A0D9007709AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9258E6962C4664B800B6DC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9258E6B22C4664F300B6DC82;
+			remoteInfo = ShareExt;
+		};
+		927EAEFB2C49A0D9007709AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9258E6962C4664B800B6DC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92854C752C4993E700E45F88;
+			remoteInfo = "Watch App";
+		};
+		927EAEFE2C49A23E007709AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9258E6962C4664B800B6DC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9258E6B22C4664F300B6DC82;
+			remoteInfo = ShareExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9258E6D92C467F7500B6DC82 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				927EAEF82C499FD3007709AD /* Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927EAF002C49A23F007709AD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				927EAEFD2C49A23E007709AD /* ShareExt.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92854BE02C48330100E45F88 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		9258E69E2C4664B800B6DC82 /* ShareToWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareToWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9258E69E2C4664B800B6DC82 /* iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9258E6A12C4664B800B6DC82 /* ShareToWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareToWatchApp.swift; sourceTree = "<group>"; };
 		9258E6A32C4664B800B6DC82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9258E6A52C4664BA00B6DC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9258E6A82C4664BA00B6DC82 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9258E6B32C4664F300B6DC82 /* ShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9258E6B52C4664F300B6DC82 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		9258E6B82C4664F300B6DC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9258E6BA2C4664F300B6DC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9258E6C22C466D1600B6DC82 /* ShareToWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareToWatch.entitlements; sourceTree = "<group>"; };
+		9258E6C32C466DC400B6DC82 /* ShareExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExt.entitlements; sourceTree = "<group>"; };
+		9260156F2C47052300212AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		926015722C47CF6C00212AB7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		927EAF052C49AF49007709AD /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		92852B902C4BBF55009779F2 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
+		92852B952C4BC2AB009779F2 /* NoteEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEdit.swift; sourceTree = "<group>"; };
+		92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		92854C762C4993E700E45F88 /* Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92854C7B2C4993E700E45F88 /* WatchExtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchExtApp.swift; sourceTree = "<group>"; };
+		92854C7D2C4993E700E45F88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		92854C7F2C4993E900E45F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92854C822C4993E900E45F88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92854C8B2C49940B00E45F88 /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchApp.entitlements; sourceTree = "<group>"; };
+		92D3461A2C4BE02700AE74FD /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "Source/Shared/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9258E69B2C4664B800B6DC82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9258E6B02C4664F300B6DC82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92854C732C4993E700E45F88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,15 +153,19 @@
 		9258E6952C4664B800B6DC82 = {
 			isa = PBXGroup;
 			children = (
-				9258E6A02C4664B800B6DC82 /* ShareToWatch */,
+				92D3461A2C4BE02700AE74FD /* Note+CoreDataProperties.swift */,
+				92852B8C2C4BBC9D009779F2 /* Source */,
 				9258E69F2C4664B800B6DC82 /* Products */,
+				92854BDC2C48330100E45F88 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		9258E69F2C4664B800B6DC82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9258E69E2C4664B800B6DC82 /* ShareToWatch.app */,
+				9258E69E2C4664B800B6DC82 /* iOS App.app */,
+				9258E6B32C4664F300B6DC82 /* ShareExt.appex */,
+				92854C762C4993E700E45F88 /* Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +173,10 @@
 		9258E6A02C4664B800B6DC82 /* ShareToWatch */ = {
 			isa = PBXGroup;
 			children = (
+				92852B942C4BC286009779F2 /* Scenes */,
+				9260156F2C47052300212AB7 /* Info.plist */,
+				9258E6C22C466D1600B6DC82 /* ShareToWatch.entitlements */,
 				9258E6A12C4664B800B6DC82 /* ShareToWatchApp.swift */,
-				9258E6A32C4664B800B6DC82 /* ContentView.swift */,
 				9258E6A52C4664BA00B6DC82 /* Assets.xcassets */,
 				9258E6A72C4664BA00B6DC82 /* Preview Content */,
 			);
@@ -67,24 +191,152 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		9258E6B42C4664F300B6DC82 /* ShareExt */ = {
+			isa = PBXGroup;
+			children = (
+				9258E6C32C466DC400B6DC82 /* ShareExt.entitlements */,
+				9258E6B52C4664F300B6DC82 /* ShareViewController.swift */,
+				9258E6B72C4664F300B6DC82 /* MainInterface.storyboard */,
+				9258E6BA2C4664F300B6DC82 /* Info.plist */,
+			);
+			path = ShareExt;
+			sourceTree = "<group>";
+		};
+		926015712C47CF5000212AB7 /* DTOModels */ = {
+			isa = PBXGroup;
+			children = (
+				926015722C47CF6C00212AB7 /* Note.swift */,
+				927EAF052C49AF49007709AD /* CoreDataHelper.swift */,
+			);
+			path = DTOModels;
+			sourceTree = "<group>";
+		};
+		92852B8C2C4BBC9D009779F2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				92852B8E2C4BBCC4009779F2 /* Shared */,
+				92852B8D2C4BBCBC009779F2 /* Apps */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		92852B8D2C4BBCBC009779F2 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				9258E6A02C4664B800B6DC82 /* ShareToWatch */,
+				9258E6B42C4664F300B6DC82 /* ShareExt */,
+				92854C7A2C4993E700E45F88 /* WatchApp */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		92852B8E2C4BBCC4009779F2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				92854BEE2C483E7900E45F88 /* Note+CoreDataClass.swift */,
+				92854BEF2C483E7900E45F88 /* Note+CoreDataProperties.swift */,
+				92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */,
+				926015712C47CF5000212AB7 /* DTOModels */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		92852B942C4BC286009779F2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9258E6A32C4664B800B6DC82 /* ContentView.swift */,
+				92852B952C4BC2AB009779F2 /* NoteEdit.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		92854BDC2C48330100E45F88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92854C7A2C4993E700E45F88 /* WatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				92854C8B2C49940B00E45F88 /* WatchApp.entitlements */,
+				92854C7B2C4993E700E45F88 /* WatchExtApp.swift */,
+				92854C7D2C4993E700E45F88 /* ContentView.swift */,
+				92854C7F2C4993E900E45F88 /* Assets.xcassets */,
+				92854C812C4993E900E45F88 /* Preview Content */,
+			);
+			path = WatchApp;
+			sourceTree = "<group>";
+		};
+		92854C812C4993E900E45F88 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				92854C822C4993E900E45F88 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9258E69D2C4664B800B6DC82 /* ShareToWatch */ = {
+		9258E69D2C4664B800B6DC82 /* iOS App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9258E6AC2C4664BA00B6DC82 /* Build configuration list for PBXNativeTarget "ShareToWatch" */;
+			buildConfigurationList = 9258E6AC2C4664BA00B6DC82 /* Build configuration list for PBXNativeTarget "iOS App" */;
 			buildPhases = (
 				9258E69A2C4664B800B6DC82 /* Sources */,
 				9258E69B2C4664B800B6DC82 /* Frameworks */,
 				9258E69C2C4664B800B6DC82 /* Resources */,
+				9258E6D92C467F7500B6DC82 /* Embed Watch Content */,
+				92854BE02C48330100E45F88 /* Embed Frameworks */,
+				927EAF002C49A23F007709AD /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				927EAEFA2C49A0D9007709AD /* PBXTargetDependency */,
+				927EAEFC2C49A0D9007709AD /* PBXTargetDependency */,
+				927EAEFF2C49A23E007709AD /* PBXTargetDependency */,
+			);
+			name = "iOS App";
+			packageProductDependencies = (
+			);
+			productName = ShareToWatch;
+			productReference = 9258E69E2C4664B800B6DC82 /* iOS App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9258E6B22C4664F300B6DC82 /* ShareExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9258E6BE2C4664F300B6DC82 /* Build configuration list for PBXNativeTarget "ShareExt" */;
+			buildPhases = (
+				9258E6AF2C4664F300B6DC82 /* Sources */,
+				9258E6B02C4664F300B6DC82 /* Frameworks */,
+				9258E6B12C4664F300B6DC82 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ShareToWatch;
-			productName = ShareToWatch;
-			productReference = 9258E69E2C4664B800B6DC82 /* ShareToWatch.app */;
+			name = ShareExt;
+			productName = CtWShareExt;
+			productReference = 9258E6B32C4664F300B6DC82 /* ShareExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		92854C752C4993E700E45F88 /* Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92854C842C4993E900E45F88 /* Build configuration list for PBXNativeTarget "Watch App" */;
+			buildPhases = (
+				92854C722C4993E700E45F88 /* Sources */,
+				92854C732C4993E700E45F88 /* Frameworks */,
+				92854C742C4993E700E45F88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Watch App";
+			productName = "WatchExt Watch App";
+			productReference = 92854C762C4993E700E45F88 /* Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -94,11 +346,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					9258E69D2C4664B800B6DC82 = {
 						CreatedOnToolsVersion = 15.1;
+					};
+					9258E6B22C4664F300B6DC82 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					92854C752C4993E700E45F88 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -111,11 +369,15 @@
 				Base,
 			);
 			mainGroup = 9258E6952C4664B800B6DC82;
+			packageReferences = (
+			);
 			productRefGroup = 9258E69F2C4664B800B6DC82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9258E69D2C4664B800B6DC82 /* ShareToWatch */,
+				9258E69D2C4664B800B6DC82 /* iOS App */,
+				9258E6B22C4664F300B6DC82 /* ShareExt */,
+				92854C752C4993E700E45F88 /* Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +392,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9258E6B12C4664F300B6DC82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9258E6B92C4664F300B6DC82 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92854C742C4993E700E45F88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92854C832C4993E900E45F88 /* Preview Assets.xcassets in Resources */,
+				92854C802C4993E900E45F88 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,11 +417,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				9258E6A42C4664B800B6DC82 /* ContentView.swift in Sources */,
+				92854BF02C483E7900E45F88 /* Note+CoreDataClass.swift in Sources */,
+				92854BF12C483E7900E45F88 /* Note+CoreDataProperties.swift in Sources */,
+				92852B912C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */,
+				927EAF062C49AF49007709AD /* CoreDataHelper.swift in Sources */,
+				92852B962C4BC2AB009779F2 /* NoteEdit.swift in Sources */,
 				9258E6A22C4664B800B6DC82 /* ShareToWatchApp.swift in Sources */,
+				926015732C47CF6C00212AB7 /* Note.swift in Sources */,
+				92D3461B2C4BE02700AE74FD /* Note+CoreDataProperties.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9258E6AF2C4664F300B6DC82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927EAF072C49AF49007709AD /* CoreDataHelper.swift in Sources */,
+				92852B922C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */,
+				927EAF012C49A41A007709AD /* Note.swift in Sources */,
+				92854BF22C484E9500E45F88 /* Note+CoreDataProperties.swift in Sources */,
+				92854BF32C484E9500E45F88 /* Note+CoreDataClass.swift in Sources */,
+				9258E6B62C4664F300B6DC82 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92854C722C4993E700E45F88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				927EAF082C49AF49007709AD /* CoreDataHelper.swift in Sources */,
+				92854C7E2C4993E700E45F88 /* ContentView.swift in Sources */,
+				92854C7C2C4993E700E45F88 /* WatchExtApp.swift in Sources */,
+				92852B932C4BBF55009779F2 /* Notes.xcdatamodeld in Sources */,
+				927EAF032C49A89F007709AD /* Note+CoreDataProperties.swift in Sources */,
+				927EAF042C49A89F007709AD /* Note+CoreDataClass.swift in Sources */,
+				927EAF022C49A41B007709AD /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		927EAEFA2C49A0D9007709AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9258E6B22C4664F300B6DC82 /* ShareExt */;
+			targetProxy = 927EAEF92C49A0D9007709AD /* PBXContainerItemProxy */;
+		};
+		927EAEFC2C49A0D9007709AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92854C752C4993E700E45F88 /* Watch App */;
+			targetProxy = 927EAEFB2C49A0D9007709AD /* PBXContainerItemProxy */;
+		};
+		927EAEFF2C49A23E007709AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9258E6B22C4664F300B6DC82 /* ShareExt */;
+			targetProxy = 927EAEFE2C49A23E007709AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9258E6B72C4664F300B6DC82 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9258E6B82C4664F300B6DC82 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9258E6AA2C4664BA00B6DC82 /* Debug */ = {
@@ -267,26 +609,33 @@
 		9258E6AD2C4664BA00B6DC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Source/Apps/ShareToWatch/ShareToWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShareToWatch/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Source/Apps/ShareToWatch/Preview Content\"";
 				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Source/Apps/ShareToWatch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.WatchApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -296,29 +645,156 @@
 		9258E6AE2C4664BA00B6DC82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Source/Apps/ShareToWatch/ShareToWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShareToWatch/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Source/Apps/ShareToWatch/Preview Content\"";
 				DEVELOPMENT_TEAM = 87XM268947;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Source/Apps/ShareToWatch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.WatchApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9258E6BF2C4664F300B6DC82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Source/Apps/ShareExt/ShareExt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87XM268947;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Source/Apps/ShareExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch.iOSApp.ShareExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9258E6C02C4664F300B6DC82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Source/Apps/ShareExt/ShareExt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87XM268947;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Source/Apps/ShareExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch.iOSApp.ShareExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92854C852C4993E900E45F88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Source/Apps/WatchApp/WatchApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = Source/Apps/WatchApp/WatchApp.entitlements;
+				DEVELOPMENT_TEAM = 87XM268947;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchExt;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch.iOSApp.WatchApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		92854C862C4993E900E45F88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Source/Apps/WatchApp/WatchApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = Source/Apps/WatchApp/WatchApp.entitlements;
+				DEVELOPMENT_TEAM = 87XM268947;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchExt;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = live.ShareToWatch.iOSApp.WatchApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
 			};
 			name = Release;
 		};
@@ -334,7 +810,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9258E6AC2C4664BA00B6DC82 /* Build configuration list for PBXNativeTarget "ShareToWatch" */ = {
+		9258E6AC2C4664BA00B6DC82 /* Build configuration list for PBXNativeTarget "iOS App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9258E6AD2C4664BA00B6DC82 /* Debug */,
@@ -343,7 +819,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		9258E6BE2C4664F300B6DC82 /* Build configuration list for PBXNativeTarget "ShareExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9258E6BF2C4664F300B6DC82 /* Debug */,
+				9258E6C02C4664F300B6DC82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92854C842C4993E900E45F88 /* Build configuration list for PBXNativeTarget "Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92854C852C4993E900E45F88 /* Debug */,
+				92854C862C4993E900E45F88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92852B8F2C4BBF55009779F2 /* Notes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92852B902C4BBF55009779F2 /* Notes.xcdatamodel */,
+			);
+			currentVersion = 92852B902C4BBF55009779F2 /* Notes.xcdatamodel */;
+			path = Notes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9258E6962C4664B800B6DC82 /* Project object */;
 }
