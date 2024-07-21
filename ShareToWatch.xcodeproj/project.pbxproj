@@ -25,8 +25,13 @@
 		92D346202C4C156500AE74FD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
 		92D346212C4C160D00AE74FD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
 		92D346252C4C1FDC00AE74FD /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D346242C4C1FDC00AE74FD /* CheckboxView.swift */; };
-		92D346272C4C205F00AE74FD /* WatchNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461C2C4C082900AE74FD /* WatchNote.swift */; };
 		92D346282C4C208C00AE74FD /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D346242C4C1FDC00AE74FD /* CheckboxView.swift */; };
+		92D346292C4C385600AE74FD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
+		92D3462A2C4C385900AE74FD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926015722C47CF6C00212AB7 /* Note.swift */; };
+		92D3462D2C4C545100AE74FD /* DataTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3462C2C4C545100AE74FD /* DataTransfer.swift */; };
+		92D3462E2C4CEEF000AE74FD /* DataTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3462C2C4C545100AE74FD /* DataTransfer.swift */; };
+		92D346302C4D0A2200AE74FD /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3462F2C4D0A2200AE74FD /* DataBaseManager.swift */; };
+		92D346312C4D0A2200AE74FD /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3462F2C4D0A2200AE74FD /* DataBaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,9 +114,10 @@
 		92854C7F2C4993E900E45F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92854C822C4993E900E45F88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92854C8B2C49940B00E45F88 /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchApp.entitlements; sourceTree = "<group>"; };
-		92D3461C2C4C082900AE74FD /* WatchNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNote.swift; sourceTree = "<group>"; };
 		92D3461E2C4C152500AE74FD /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		92D346242C4C1FDC00AE74FD /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		92D3462C2C4C545100AE74FD /* DataTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransfer.swift; sourceTree = "<group>"; };
+		92D3462F2C4D0A2200AE74FD /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				926015722C47CF6C00212AB7 /* Note.swift */,
-				92D3461C2C4C082900AE74FD /* WatchNote.swift */,
 				92D3461E2C4C152500AE74FD /* DataContainer.swift */,
 			);
 			path = DTOModels;
@@ -222,8 +227,10 @@
 		92852B8E2C4BBCC4009779F2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				92D3462B2C4C541700AE74FD /* Views */,
 				926015712C47CF5000212AB7 /* DTOModels */,
-				92D346242C4C1FDC00AE74FD /* CheckboxView.swift */,
+				92D3462C2C4C545100AE74FD /* DataTransfer.swift */,
+				92D3462F2C4D0A2200AE74FD /* DataBaseManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -262,6 +269,14 @@
 				92854C822C4993E900E45F88 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92D3462B2C4C541700AE74FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92D346242C4C1FDC00AE74FD /* CheckboxView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,7 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D346302C4D0A2200AE74FD /* DataBaseManager.swift in Sources */,
 				9258E6A42C4664B800B6DC82 /* ContentView.swift in Sources */,
+				92D3462E2C4CEEF000AE74FD /* DataTransfer.swift in Sources */,
 				92D346202C4C156500AE74FD /* DataContainer.swift in Sources */,
 				92852B962C4BC2AB009779F2 /* NoteEdit.swift in Sources */,
 				92D346282C4C208C00AE74FD /* CheckboxView.swift in Sources */,
@@ -426,10 +443,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D346312C4D0A2200AE74FD /* DataBaseManager.swift in Sources */,
 				92854C7E2C4993E700E45F88 /* ContentView.swift in Sources */,
+				92D3462D2C4C545100AE74FD /* DataTransfer.swift in Sources */,
+				92D346292C4C385600AE74FD /* DataContainer.swift in Sources */,
 				92854C7C2C4993E700E45F88 /* WatchExtApp.swift in Sources */,
 				92D346252C4C1FDC00AE74FD /* CheckboxView.swift in Sources */,
-				92D346272C4C205F00AE74FD /* WatchNote.swift in Sources */,
+				92D3462A2C4C385900AE74FD /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

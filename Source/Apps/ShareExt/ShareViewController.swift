@@ -15,7 +15,7 @@ import WatchConnectivity
 class ShareViewViewModel {
     @MainActor func saveTextToCoreData(text: String) {
         let container = DataContainer.context.container
-        let note = Note(text: text, noteType: "you")
+        let note = Note(id: UUID().uuidString, text: text, noteType: "you")
 
         container.mainContext.insert(note)
         try! container.mainContext.save()

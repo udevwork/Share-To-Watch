@@ -1,39 +1,30 @@
-//
-//  NoteEdit.swift
-//  ShareToWatch
-//
-//  Created by Denis Kotelnikov on 20.07.2024.
-//
-
 import SwiftUI
-
-import SwiftUI
-import CoreData
 import SwiftData
 
 struct NoteEditorView: View {
     
-    @State 
-    private var text: String = ""
+    @Environment(\.presentationMode)
+    var presentationMode
     
     @State
-    private var content: String = ""
-    
-    @Environment(\.presentationMode) 
-    var presentationMode
+    private var text: String = ""
     
     @Binding 
     var note: Note?
         
     @State
     var checkbox: Bool = false
+  
+    
+    var onCreate : (Note)->()
+    var onEdit : (Note)->()
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Title")) {
                     TextEditor(text: $text)
-                    Toggle(isOn: $checkbox, label: {Text("checkbox")})
+                    Toggle(isOn: $checkbox, label: { Text("checkbox") })
                 }
             }
             .toolbar(content: {
@@ -43,6 +34,7 @@ struct NoteEditorView: View {
             .onAppear {
                 if let note = note {
                     text = note.text ?? ""
+                    checkbox = note.noteType == "checkbox" ? true : false
                 }
             }
         }
@@ -56,14 +48,21 @@ struct NoteEditorView: View {
     
     @MainActor private var saveButton: some View {
         Button("Save") {
-            let container = try! ModelContainer(for: Note.self, configurations: ModelConfiguration())
+            let container = DataContainer.context.container
             if let note = note {
+                
                 note.text = text
-                note.noteType =  self.checkbox ? "checkbox" : ""
+                note.noteType = checkbox ? "checkbox" : ""
+                
+                onEdit(note)
             } else {
-                let note = Note(text: text)
-                note.noteType =  self.checkbox ? "checkbox" : ""
+                
+                let note = Note(id: UUID().uuidString)
+                note.text = text
+                note.noteType = checkbox ? "checkbox" : ""
+                
                 container.mainContext.insert(note)
+                onCreate(note)
             }
             
             try! container.mainContext.save()

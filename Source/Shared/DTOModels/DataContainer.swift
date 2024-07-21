@@ -10,5 +10,5 @@ import SwiftData
 
 @MainActor
 class DataContainer {
-    static var context = try! ModelContainer(for: Note.self, configurations: ModelConfiguration(groupContainer: .identifier("group.01lab"))).mainContext
+     static var context = try! ModelContainer(for: Note.self, configurations: ModelConfiguration(groupContainer: .identifier("group.01lab"))).mainContext
 }

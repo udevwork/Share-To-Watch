@@ -4,32 +4,43 @@ import SwiftData
 @Model
 class Note: Codable {
     
-    @Attribute(.unique)
-    let id = UUID().uuidString
-    
+    var id: String
     var text: String?
     var noteType: String?
+    var isCheked: Bool
     
-    init(text: String? = nil, noteType: String? = nil) {
+    init(id: String, 
+         text: String? = nil,
+         noteType: String? = nil,
+         isCheked: Bool = false
+    ) {
+        self.id = id
         self.text = text
         self.noteType = noteType
+        self.isCheked = isCheked
     }
     
     enum CodingKeys: CodingKey {
+        case id
         case text
         case noteType
+        case isCheked
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         text = try container.decode(String.self, forKey: .text)
         noteType = try container.decode(String.self, forKey: .noteType)
+        id = try container.decode(String.self, forKey: .id)
+        isCheked = try container.decode(Bool.self, forKey: .isCheked)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(text, forKey: .text)
         try container.encode(noteType, forKey: .noteType)
+        try container.encode(id, forKey: .id)
+        try container.encode(isCheked, forKey: .isCheked)
     }
 }
 
