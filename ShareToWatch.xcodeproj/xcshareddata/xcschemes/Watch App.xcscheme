@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92854C752C4993E700E45F88"
-               BuildableName = "Watch App.app"
+               BuildableName = "WatchNotes.app"
                BlueprintName = "Watch App"
                ReferencedContainer = "container:ShareToWatch.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92854C752C4993E700E45F88"
-            BuildableName = "Watch App.app"
+            BuildableName = "WatchNotes.app"
             BlueprintName = "Watch App"
             ReferencedContainer = "container:ShareToWatch.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92854C752C4993E700E45F88"
-            BuildableName = "Watch App.app"
+            BuildableName = "WatchNotes.app"
             BlueprintName = "Watch App"
             ReferencedContainer = "container:ShareToWatch.xcodeproj">
          </BuildableReference>

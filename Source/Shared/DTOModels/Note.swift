@@ -4,14 +4,23 @@ import SwiftData
 @Model
 class Note: Codable {
     
-    var id: String
-    var text: String?
-    var noteType: String?
-    var isCheked: Bool
+    enum NoteType: String, Codable {
+        case plain
+        case checkbox
+        case unowned
+    }
     
-    init(id: String, 
-         text: String? = nil,
-         noteType: String? = nil,
+    var viewID = UUID().uuidString
+    var id: String?
+    var text: String?
+    var noteType: NoteType? = NoteType.plain
+    var isCheked: Bool = false
+    var lastEditingDate: Date?
+
+
+    init(id: String,
+         text: String? = "New note",
+         noteType: NoteType? = NoteType.plain,
          isCheked: Bool = false
     ) {
         self.id = id
@@ -25,14 +34,20 @@ class Note: Codable {
         case text
         case noteType
         case isCheked
+        case lastEditingDate
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        text = try container.decode(String.self, forKey: .text)
-        noteType = try container.decode(String.self, forKey: .noteType)
-        id = try container.decode(String.self, forKey: .id)
+        text = try? container.decode(String.self, forKey: .text)
+        if let type = try? container.decode(NoteType?.self, forKey: .noteType) {
+            self.noteType = type
+        } else {
+            self.noteType = .plain
+        }
+        id = try? container.decode(String.self, forKey: .id)
         isCheked = try container.decode(Bool.self, forKey: .isCheked)
+        lastEditingDate = try? container.decode(Date?.self, forKey: .lastEditingDate)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -41,8 +56,11 @@ class Note: Codable {
         try container.encode(noteType, forKey: .noteType)
         try container.encode(id, forKey: .id)
         try container.encode(isCheked, forKey: .isCheked)
+        try container.encode(lastEditingDate, forKey: .lastEditingDate)
     }
 }
+
+
 
 extension Note {
     
@@ -57,11 +75,16 @@ extension Note {
     
     // Преобразование словаря в объект Note
     static func fromDictionary(_ dictionary: [String: Any]) -> Note? {
-        guard let data = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) else {
+        do {
+             let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            
+            let decoder = JSONDecoder()
+            
+            return try decoder.decode(Note.self, from: data)
+        } catch let err {
+            print(err.localizedDescription)
             return nil
         }
-        let decoder = JSONDecoder()
-        return try? decoder.decode(Note.self, from: data)
     }
 }
 extension Array where Element: Note {

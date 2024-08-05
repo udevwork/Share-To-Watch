@@ -8,14 +8,22 @@
 import SwiftUI
 import WatchConnectivity
 import SwiftData
+import WidgetKit
+import Combine
 
 class ContentViewModel: NSObject, ObservableObject {
-    var dataTransfer = DataTransfer()
+    var dataTransfer = WatchDataTransfer()
     @Published var notes: [Note] = []
-    var session: WCSession? = nil
+    var store = Set<AnyCancellable>()
+
+    
     override init() {
         super.init()
-        dataTransfer.onRecive = { event, externalNote in
+        
+        DispatchQueue.main.async {
+            self.fetchNotes()
+        }
+        dataTransfer.emitter.subscribe { (event, externalNote) in
             if event == .add {
                 print("index add")
                 DispatchQueue.main.async {
@@ -27,7 +35,6 @@ class ContentViewModel: NSObject, ObservableObject {
             }
             
             if event == .delete {
-           
                 if let index = self.notes.firstIndex(where: { $0.id == externalNote.id }) {
                     print("index: \(index) delete")
                     DispatchQueue.main.async {
@@ -36,10 +43,6 @@ class ContentViewModel: NSObject, ObservableObject {
                         context.delete(note)
                         try! context.save()
                         self.notes.remove(at: index)
-                    }
-                } else {
-                    self.notes.forEach {
-                        print($0.id, externalNote.id, $0.id == externalNote.id)
                     }
                 }
             }
@@ -56,21 +59,7 @@ class ContentViewModel: NSObject, ObservableObject {
                     }
                 }
             }
-        }
-    }
-    
-    // Попытка извлечь данные из последнего контекста приложения
-    func fetchNotes(_ session: WCSession) {
-//        let receivedApplicationContext = session.receivedApplicationContext
-//        
-//        var _temp: [Note] = []
-//        if let receivedNotes = receivedApplicationContext["notes"] as? [[String : Any]] {
-//            _temp = [Note].fromDictionaryArray(receivedNotes) ?? []
-//        }
-//        
-//        DispatchQueue.main.async {
-//            self.notes = _temp
-//        }
+        }.store(in: &store)
     }
     
     @MainActor func fetchNotes() {
@@ -83,12 +72,11 @@ class ContentViewModel: NSObject, ObservableObject {
             print("WC Session activation failed with error: \(error.localizedDescription)")
             return
         }
-        fetchNotes(session)
-        
+
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        fetchNotes(session)
+
     }
     
     func clearDatabase() {
@@ -103,15 +91,29 @@ class ContentViewModel: NSObject, ObservableObject {
         }
     }
     
-    // TEST
-    @MainActor func createNewNote(text: String) {
-        let note = Note(id: UUID().uuidString, text: "fuck", noteType: "you")
-        let container = DataContainer.context.container
-        container.mainContext.insert(note)
-        try! container.mainContext.save()
-        self.notes.append(note)
+    
+    @MainActor func delete(_ indexSet: IndexSet) {
+        let modelContext = DataContainer.context
+        
+        indexSet.forEach { i in
+            print("PERFORM DELETE index: \(i), count: \(notes.count)")
+            let note = notes[i]
+            modelContext.delete(note)
+            if let data = note.toDictionary() {
+                dataTransfer.sendData(event: .delete, item: data)
+            }
+        }
     }
-
+    
+    
+    @MainActor func delete(note: Note) {
+        let modelContext = DataContainer.context
+        if let data = note.toDictionary() {
+            modelContext.delete(note)
+            dataTransfer.sendData(event: .delete, item: data)
+            self.fetchNotes()
+        }
+    }
 }
 
 
@@ -124,48 +126,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-               
-                Button {
-                    model.dataTransfer.send(text: "TEST")
-                } label: {
-                    Text("send test msg")
-                }
-                               
-                Button {
-                    model.dataTransfer.test()
-                } label: {
-                    Text("print userinfo outstand")
-                }
-                
-                Button {
-                    model.clearDatabase()
-                } label: {
-                    Text("clearDatabase")
-                }
-
-                Button {
-                    model.fetchNotes()
-                } label: {
-                    Text("fetchNotes")
-                }   
-                
-                Button {
-                    model.createNewNote(text: "test")
-                } label: {
-                    Text("createNewNote")
-                }   
-                
-                Button {
-                    let _d = model.notes.first!.toDictionary()!
-                    model.dataTransfer.sendData(event: .add, item: _d)
-                    counter += 1
-                } label: {
-                    Text("sand user info \(counter)")
-                }
-
                 Section {
                     ForEach(model.notes, id: \.id) { note in
-                        if note.noteType == "checkbox" {
+                        if note.noteType == .checkbox {
                             CheckBoxView(note: note) { isChecked in
                                 
                                 try! DataContainer.context.save()
@@ -176,20 +139,32 @@ struct ContentView: View {
                             }
                         } else {
                             Text(note.text ?? "-")
+                                .swipeActions {
+                                    Button {
+                                        SharedDefaults.saveDataToAppGroup(note: note.text ?? "-")
+                                        WidgetCenter.shared.reloadAllTimelines()
+                                    } label: {
+                                        Image(systemName: "paperclip")
+                                    }
+                                    .tint(.green)
+                                    
+                                    Button {
+                                        model.delete(note: note)
+                                    } label: {
+                                        Image(systemName: "trash.fill")
+                                    }.tint(.red)
+                                }
                         }
-                    }
+                    }.onDelete(perform: model.delete)
+                        
                 } header: {
-                    Text("v0.15")
+                    Text("v0.106")
                 } footer: {
                     Text("Edit notes in ios app")
                 }
                 
      
             }.navigationTitle("Notes")
-                .onAppear {
-                    model.fetchNotes()
-                }
-            
         }
     }
 }
