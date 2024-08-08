@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import Combine
+import WidgetKit
 
 struct ContentView: View {
     
@@ -15,41 +16,29 @@ struct ContentView: View {
     var scenePhase
 
     @StateObject
-    var firbase = FirebaseNotesController()
+    var viewModel = FirebaseNotesController()
     
     @State
     private var showingEditor = false
     
     @State
     private var selectedNote: Note? = nil
-    
-    @State
-    private var containerID: String = "no"
+
+    @Environment(\.editMode)
+    private var editMode
     
     var body: some View {
         
-        List {
+        List() {
+//            Text("An application that allows you to conveniently send any note to your watch and show it on the dial").listRowBackground(Color.clear)
+                    
             Section {
-                if let txt = firbase.remoteFirebaseCollectionID {
-                    Text(txt)
-                } else {
-                    Text("no id")
-                }
-                
-                Button {
-                    firbase.remoteFirebaseCollectionID = nil
-                } label: {
-                    Text("clear fireID")
-                }
-
-                Button {
-                    firbase.remoteFirebaseCollectionID = UUID().uuidString
-                } label: {
-                    Text("new fireID")
-                }
-
-                
-                ForEach(firbase.items) { note in
+            
+                ForEach(
+                    (editMode?.wrappedValue ?? .inactive) == .active ? viewModel.items :
+                    viewModel.items.sorted(by: { $0.sortingIndex > $1.sortingIndex }),
+                    id: \.viewID
+                ) { note in
                     
                     Button {
                         selectedNote = note
@@ -58,52 +47,95 @@ struct ContentView: View {
                         
                         if note.noteType == .checkbox {
                             CheckBoxView(note: note) { isChecked in
-                                firbase.update(note: note, targets: [.Local,.Remote, .Watch])
+                                viewModel.update(note: note, targets: .all)
                             }
                         } else {
                             Text(note.text ?? "no text")
                         }
                         
-                    }.foregroundStyle(Color.primary)
-                }
-                    .onDelete { set in
-                        firbase.delete(set)
                     }
-            } header: {
-                Text("Notes")
-            }
+                    .foregroundStyle(Color.primary)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .contextMenu {
+                        Section("Watch sync") {
+                            Button("Update") {
+                                if let data = note.toDictionary() {
+                                    viewModel.dataTransfer.sendData(event: .edit, item: data)
+                                }
+                            }
+                            Button("Add") {
+                                if let data = note.toDictionary() {
+                                    viewModel.dataTransfer.sendData(event: .add, item: data)
+                                }
+                            }
+                        }
+                    } preview: {
+                        HStack {
+                            Text(note.text ?? "no text")
+                                .lineLimit(3)
+                                .padding()
+                        }
+                    }
+                    .swipeActions {
+                        Button {
+                            SharedDefaults.saveDataToAppGroup(note: note.text ?? "-")
+                            WidgetCenter.shared.reloadAllTimelines()
+                        } label: {
+                            Label("show on widget", systemImage: "rectangle.portrait.tophalf.inset.filled")
+                        }
+                        .tint(.green)
+                        
+                        Button {
+                            viewModel.deleteItems(note: note, targets: .all)
+                        } label: {
+                            Image(systemName: "trash.fill")
+                        }.tint(.red)
+                    }
+                    
+                }
 
-        }.refreshable {
-//            model.fetchNotes()
+                .onMove(perform: move)
+               
+            }
+        }
+        .refreshable {
+            viewModel.fetchNotes()
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .active, oldPhase == .background {
-//                model.fetchNotes()
+                viewModel.fetchNotes()
             }
         }
         .sheet(isPresented: $showingEditor, onDismiss: {
-//            model.fetchNotes()
+            viewModel.fetchNotes()
         }, content: {
             NoteEditorView(note: $selectedNote, onCreate: { note in
-                
-                firbase.create(note: note, targets: [.Local,.Remote, .Watch])
+                viewModel.create(note: note, targets: .all)
             }, onEdit: { note in
-                
-                firbase.update(note: note, targets: [.Local,.Remote, .Watch])
+                viewModel.update(note: note, targets: .all)
             })
-            
         })
         .navigationTitle("Notes")
+        .animation(nil, value: editMode?.wrappedValue)
         .toolbar {
+            EditButton()
             Button(action: {
-           
                 selectedNote = nil
                 showingEditor = true
             }, label: {
-                Image(systemName: "plus.circle.fill")  .foregroundStyle(Color.green)
+                Image(systemName: "plus.circle.fill")
             })
-            
+           
         }
+        .onAppear {
+            viewModel.updateSortingIndexes()
+        }
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        viewModel.items.move(fromOffsets: source, toOffset: destination)
+        viewModel.updateSortingIndexes()
     }
 }
 

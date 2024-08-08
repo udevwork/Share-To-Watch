@@ -1,10 +1,3 @@
-//
-//  NotesListItemView.swift
-//  MacOSApp
-//
-//  Created by Denis Kotelnikov on 27.07.2024.
-//
-
 import SwiftUI
 import SwiftData
 import Combine
@@ -82,12 +75,7 @@ struct NotesListItemMACView: View {
                     }
                   
                 }
-                Button {
-                    
-                } label: {
-                    Label("Attach to widget", systemImage: "paperclip.circle.fill")
-                        .foregroundStyle(.white)
-                }
+              
                 Button {
                     onDelete()
                 } label: {

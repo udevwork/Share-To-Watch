@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9210819A2C64C260001A1857 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921081992C64C260001A1857 /* AlertView.swift */; };
+		9210819B2C64E389001A1857 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921081992C64C260001A1857 /* AlertView.swift */; };
 		921446C92C5943A7008AB9AD /* CloudStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 921446C82C5943A7008AB9AD /* CloudStorage */; };
 		921446CB2C59440C008AB9AD /* CloudStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 921446CA2C59440C008AB9AD /* CloudStorage */; };
 		921446CC2C5945F2008AB9AD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
@@ -35,6 +37,7 @@
 		9299A7292C554D15002EED17 /* FirebaseNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299A7282C554D15002EED17 /* FirebaseNotesController.swift */; };
 		9299A72A2C554D15002EED17 /* FirebaseNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299A7282C554D15002EED17 /* FirebaseNotesController.swift */; };
 		9299A72C2C555CB8002EED17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9299A72B2C555CB8002EED17 /* GoogleService-Info.plist */; };
+		92B73D3A2C63D81D004A29C5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B73D392C63D81D004A29C5 /* SettingsView.swift */; };
 		92D346202C4C156500AE74FD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
 		92D346252C4C1FDC00AE74FD /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D346242C4C1FDC00AE74FD /* CheckboxView.swift */; };
 		92D346282C4C208C00AE74FD /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D346242C4C1FDC00AE74FD /* CheckboxView.swift */; };
@@ -151,6 +154,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		921081992C64C260001A1857 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		9258E69E2C4664B800B6DC82 /* iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9258E6A12C4664B800B6DC82 /* ShareToWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareToWatchApp.swift; sourceTree = "<group>"; };
 		9258E6A32C4664B800B6DC82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		9299A7202C552AB3002EED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9299A7282C554D15002EED17 /* FirebaseNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNotesController.swift; sourceTree = "<group>"; };
 		9299A72B2C555CB8002EED17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92B73D392C63D81D004A29C5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		92D3461E2C4C152500AE74FD /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		92D346242C4C1FDC00AE74FD /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		92D3462C2C4C545100AE74FD /* WatchDataTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDataTransfer.swift; sourceTree = "<group>"; };
@@ -252,6 +257,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921081982C64C246001A1857 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9258E6952C4664B800B6DC82 = {
 			isa = PBXGroup;
 			children = (
@@ -343,8 +355,10 @@
 		92852B942C4BC286009779F2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				921081982C64C246001A1857 /* Views */,
 				9258E6A32C4664B800B6DC82 /* ContentView.swift */,
 				92852B952C4BC2AB009779F2 /* NoteEdit.swift */,
+				92B73D392C63D81D004A29C5 /* SettingsView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -383,6 +397,7 @@
 			children = (
 				92E6DAA02C4FF361006877A1 /* Wigets */,
 				92D346242C4C1FDC00AE74FD /* CheckboxView.swift */,
+				921081992C64C260001A1857 /* AlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -665,9 +680,11 @@
 				92D346282C4C208C00AE74FD /* CheckboxView.swift in Sources */,
 				9258E6A22C4664B800B6DC82 /* ShareToWatchApp.swift in Sources */,
 				9299A7292C554D15002EED17 /* FirebaseNotesController.swift in Sources */,
+				9210819A2C64C260001A1857 /* AlertView.swift in Sources */,
 				92E6DA9E2C4FF2F2006877A1 /* WidgetView.swift in Sources */,
 				926015732C47CF6C00212AB7 /* Note.swift in Sources */,
 				92E6DA822C4ED931006877A1 /* SharedDefaults.swift in Sources */,
+				92B73D3A2C63D81D004A29C5 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +697,7 @@
 				92D346292C4C385600AE74FD /* DataContainer.swift in Sources */,
 				92854C7C2C4993E700E45F88 /* WatchExtApp.swift in Sources */,
 				9294B0B42C567C7E0068AFAE /* WatchDataTransfer.swift in Sources */,
+				9210819B2C64E389001A1857 /* AlertView.swift in Sources */,
 				92D346252C4C1FDC00AE74FD /* CheckboxView.swift in Sources */,
 				92E6DA7F2C4ED888006877A1 /* SharedDefaults.swift in Sources */,
 				92D3462A2C4C385900AE74FD /* Note.swift in Sources */,

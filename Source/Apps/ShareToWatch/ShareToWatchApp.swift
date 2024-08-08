@@ -23,12 +23,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct ShareToWatchApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @State var mode: EditMode = .inactive
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ContentView()
+            TabView {
+                NavigationStack {
+                    ContentView()
+                        .environment(\.editMode, self.$mode)
+                }.tabItem {
+                    Label("Notes", systemImage: "note.text")
+                }
+                NavigationStack {
+                    SettingsView()
+                }.tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
             }
+            
         }
     }
 }

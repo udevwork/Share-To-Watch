@@ -23,39 +23,47 @@ class ContentViewModel: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.fetchNotes()
         }
-        dataTransfer.emitter.subscribe { (event, externalNote) in
-            if event == .add {
-                print("index add")
-                DispatchQueue.main.async {
-                    let container = DataContainer.context.container
-                    container.mainContext.insert(externalNote)
-                    try! container.mainContext.save()
-                    self.notes.append(externalNote)
+        
+        dataTransfer.emitter.sink { (event, externalNote) in
+            DispatchQueue.main.async {
+                
+                guard let note = Note.fromDictionary(externalNote) else {
+                    return
                 }
-            }
-            
-            if event == .delete {
-                if let index = self.notes.firstIndex(where: { $0.id == externalNote.id }) {
-                    print("index: \(index) delete")
-                    DispatchQueue.main.async {
+                
+                if event == .add {
+                    print("index add")
+                    
+                    let container = DataContainer.context.container
+                    container.mainContext.insert(note)
+                    try! container.mainContext.save()
+                    self.notes.append(note)
+                    
+                }
+                
+                if event == .delete {
+                    if let index = self.notes.firstIndex(where: { $0.id == note.id }) {
+                        print("index: \(index) delete")
+                        
                         let context = DataContainer.context
                         let note = self.notes[index]
                         context.delete(note)
                         try! context.save()
                         self.notes.remove(at: index)
+                        
                     }
                 }
-            }
-            
-            if event == .edit {
-                if let index = self.notes.firstIndex(where: { $0.id == externalNote.id }) {
-                    print("index: \(index) edit")
-                    DispatchQueue.main.async {
+                
+                if event == .edit {
+                    if let index = self.notes.firstIndex(where: { $0.id == note.id }) {
+                        print("index: \(index) edit")
+                        
                         let context = DataContainer.context
-                        self.notes[index].text = externalNote.text
-                        self.notes[index].noteType = externalNote.noteType
-                        self.notes[index].isCheked = externalNote.isCheked
+                        self.notes[index].text = note.text
+                        self.notes[index].noteType = note.noteType
+                        self.notes[index].isCheked = note.isCheked
                         try! context.save()
+                        
                     }
                 }
             }
@@ -126,8 +134,24 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
+               
+                if model.dataTransfer.session?.isCompanionAppInstalled == false {
+                    WatchAlertView(
+                        image: "iphone.slash",
+                        title: "iPhone app is not installed",
+                        subtitle: "The notes will not be synchronized",
+                        сolor: .red
+                    )
+                    .foregroundStyle(Color.primary)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                }
+                
                 Section {
-                    ForEach(model.notes, id: \.id) { note in
+                    ForEach(
+                        model.notes.sorted(by: { $0.sortingIndex > $1.sortingIndex }),
+                        id: \.id
+                    ) { note in
                         if note.noteType == .checkbox {
                             CheckBoxView(note: note) { isChecked in
                                 
@@ -144,7 +168,7 @@ struct ContentView: View {
                                         SharedDefaults.saveDataToAppGroup(note: note.text ?? "-")
                                         WidgetCenter.shared.reloadAllTimelines()
                                     } label: {
-                                        Image(systemName: "paperclip")
+                                        Label("show on widget", systemImage: "rectangle.portrait.tophalf.inset.filled")
                                     }
                                     .tint(.green)
                                     

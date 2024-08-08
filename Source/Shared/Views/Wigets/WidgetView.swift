@@ -37,13 +37,61 @@ struct WidgetView : View {
                     }
                 }
             case .systemSmall:
-                Image(systemName: "square.and.pencil.circle.fill")
+                VStack(alignment: .center) {
+                    VStack {
+                        HStack {
+                            Image(systemName: "square.and.pencil.circle.fill")
+                            Text("Notes")
+                            Spacer()
+                        }    .font(.system(size: 11))
+                        HStack{
+                            Text(entry.lastNote).font(.footnote)
+                            Spacer()
+                        }
+                    }
+                }
             case .systemMedium:
-                Image(systemName: "square.and.pencil.circle.fill")
+                VStack(alignment: .center) {
+                    VStack {
+                        HStack {
+                            Image(systemName: "square.and.pencil.circle.fill")
+                            Text("Notes")
+                            Spacer()
+                        }    .font(.system(size: 11))
+                        HStack{
+                            Text(entry.lastNote).font(.footnote)
+                            Spacer()
+                        }
+                    }
+                }
             case .systemLarge:
-                Image(systemName: "square.and.pencil.circle.fill")
+                VStack(alignment: .center) {
+                    VStack {
+                        HStack {
+                            Image(systemName: "square.and.pencil.circle.fill")
+                            Text("Notes")
+                            Spacer()
+                        }    .font(.system(size: 11))
+                        HStack{
+                            Text(entry.lastNote).font(.footnote)
+                            Spacer()
+                        }
+                    }
+                }
             case .systemExtraLarge:
-                Image(systemName: "square.and.pencil.circle.fill")
+                VStack(alignment: .center) {
+                    VStack {
+                        HStack {
+                            Image(systemName: "square.and.pencil.circle.fill")
+                            Text("Notes")
+                            Spacer()
+                        }    .font(.system(size: 11))
+                        HStack{
+                            Text(entry.lastNote).font(.footnote)
+                            Spacer()
+                        }
+                    }
+                }
             @unknown default:
                 Image(systemName: "square.and.pencil.circle")
         }

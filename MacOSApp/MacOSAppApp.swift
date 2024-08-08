@@ -1,10 +1,3 @@
-//
-//  MacOSAppApp.swift
-//  MacOSApp
-//
-//  Created by Denis Kotelnikov on 23.07.2024.
-//
-
 import SwiftUI
 import SwiftData
 

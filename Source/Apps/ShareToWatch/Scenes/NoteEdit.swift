@@ -14,7 +14,10 @@ struct NoteEditorView: View {
         
     @State
     var checkbox: Bool = false
-  
+    
+    @FocusState
+    var focus: Bool
+    
     
     var onCreate : (Note)->()
     var onEdit : (Note)->()
@@ -22,16 +25,18 @@ struct NoteEditorView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Title")) {
-                    TextEditor(text: $text)
-                    Toggle(isOn: $checkbox, label: { Text("checkbox") })
+                Section(header: Text("Edit note")) {
+                    TextEditor(text: $text).frame(minHeight: 200)
+                        .focused($focus)
                 }
             }
             .toolbar(content: {
+                Toggle(isOn: $checkbox, label: { Text("Checkbox") })
                 cancelButton
                 saveButton
             })
             .onAppear {
+                focus = true
                 if let note = note {
                     text = note.text ?? ""
                     checkbox = note.noteType == .checkbox ? true : false
@@ -54,6 +59,7 @@ struct NoteEditorView: View {
                 note.noteType = checkbox ? .checkbox : .plain
                 onEdit(note)
             } else {
+                let context = DataContainer.context
                 let note = Note(id: UUID().uuidString)
                 note.text = text
                 note.noteType = checkbox ? .checkbox : .plain

@@ -11,22 +11,24 @@ class Note: Codable {
     }
     
     var viewID = UUID().uuidString
+    var sortingIndex: Int = 0
     var id: String?
     var text: String?
     var noteType: NoteType? = NoteType.plain
     var isCheked: Bool = false
-    var lastEditingDate: Date?
 
 
     init(id: String,
          text: String? = "New note",
          noteType: NoteType? = NoteType.plain,
-         isCheked: Bool = false
+         isCheked: Bool = false,
+         sortingIndex: Int = 0
     ) {
         self.id = id
         self.text = text
         self.noteType = noteType
         self.isCheked = isCheked
+        self.sortingIndex = sortingIndex
     }
     
     enum CodingKeys: CodingKey {
@@ -34,7 +36,7 @@ class Note: Codable {
         case text
         case noteType
         case isCheked
-        case lastEditingDate
+        case sortingIndex
     }
     
     required init(from decoder: Decoder) throws {
@@ -47,7 +49,8 @@ class Note: Codable {
         }
         id = try? container.decode(String.self, forKey: .id)
         isCheked = try container.decode(Bool.self, forKey: .isCheked)
-        lastEditingDate = try? container.decode(Date?.self, forKey: .lastEditingDate)
+        sortingIndex = (try? container.decode(Int?.self, forKey: .sortingIndex)) ?? 0
+        viewID = UUID().uuidString
     }
     
     func encode(to encoder: Encoder) throws {
@@ -56,7 +59,7 @@ class Note: Codable {
         try container.encode(noteType, forKey: .noteType)
         try container.encode(id, forKey: .id)
         try container.encode(isCheked, forKey: .isCheked)
-        try container.encode(lastEditingDate, forKey: .lastEditingDate)
+        try container.encode(sortingIndex, forKey: .sortingIndex)
     }
 }
 
@@ -74,12 +77,12 @@ extension Note {
     }
     
     // Преобразование словаря в объект Note
-    static func fromDictionary(_ dictionary: [String: Any]) -> Note? {
+    @MainActor static func fromDictionary(_ dictionary: [String: Any]) -> Note? {
         do {
              let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
             
             let decoder = JSONDecoder()
-            
+            let context = DataContainer.context
             return try decoder.decode(Note.self, from: data)
         } catch let err {
             print(err.localizedDescription)
