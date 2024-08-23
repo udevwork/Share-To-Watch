@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 import Combine
 import WidgetKit
+import FastAppLibrary
 
 struct ContentView: View {
     
@@ -121,8 +122,12 @@ struct ContentView: View {
         .toolbar {
             EditButton()
             Button(action: {
-                selectedNote = nil
-                showingEditor = true
+                if viewModel.items.count > 1 && !FastApp.subscriptions.isSubscribed {
+                    FastApp.subscriptions.showPaywallScreen()
+                } else {
+                    selectedNote = nil
+                    showingEditor = true
+                }
             }, label: {
                 Image(systemName: "plus.circle.fill")
             })

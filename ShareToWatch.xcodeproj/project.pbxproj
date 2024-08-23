@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		921446C92C5943A7008AB9AD /* CloudStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 921446C82C5943A7008AB9AD /* CloudStorage */; };
 		921446CB2C59440C008AB9AD /* CloudStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 921446CA2C59440C008AB9AD /* CloudStorage */; };
 		921446CC2C5945F2008AB9AD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3461E2C4C152500AE74FD /* DataContainer.swift */; };
+		921B27E52C789818009B5772 /* FastAppLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 921B27E42C789818009B5772 /* FastAppLibrary */; };
 		9258E6A22C4664B800B6DC82 /* ShareToWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258E6A12C4664B800B6DC82 /* ShareToWatchApp.swift */; };
 		9258E6A42C4664B800B6DC82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258E6A32C4664B800B6DC82 /* ContentView.swift */; };
 		9258E6A62C4664BA00B6DC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9258E6A52C4664BA00B6DC82 /* Assets.xcassets */; };
@@ -155,6 +156,7 @@
 
 /* Begin PBXFileReference section */
 		921081992C64C260001A1857 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		921B27E72C78E927009B5772 /* PP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PP.md; sourceTree = "<group>"; };
 		9258E69E2C4664B800B6DC82 /* iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9258E6A12C4664B800B6DC82 /* ShareToWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareToWatchApp.swift; sourceTree = "<group>"; };
 		9258E6A32C4664B800B6DC82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			files = (
 				9299A7232C5543A9002EED17 /* FirebaseFirestore in Frameworks */,
 				921446C92C5943A7008AB9AD /* CloudStorage in Frameworks */,
+				921B27E52C789818009B5772 /* FastAppLibrary in Frameworks */,
 				9299A7252C5543A9002EED17 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +267,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		921B27E62C78E901009B5772 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				921B27E72C78E927009B5772 /* PP.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		9258E6952C4664B800B6DC82 = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +282,7 @@
 				92E6DA832C4EDAE0006877A1 /* WatchWidgetExtension.entitlements */,
 				92E6DA652C4EC1D0006877A1 /* Watch-App-Info.plist */,
 				92852B8C2C4BBC9D009779F2 /* Source */,
+				921B27E62C78E901009B5772 /* Docs */,
 				92E6DA712C4ECF48006877A1 /* WatchWidget */,
 				92E6DA8D2C4FE5D6006877A1 /* iOSWidget */,
 				92E6DAAF2C4FFB7A006877A1 /* MacOSApp */,
@@ -485,6 +497,7 @@
 				9299A7222C5543A9002EED17 /* FirebaseFirestore */,
 				9299A7242C5543A9002EED17 /* FirebaseFirestoreSwift */,
 				921446C82C5943A7008AB9AD /* CloudStorage */,
+				921B27E42C789818009B5772 /* FastAppLibrary */,
 			);
 			productName = ShareToWatch;
 			productReference = 9258E69E2C4664B800B6DC82 /* iOS App.app */;
@@ -604,6 +617,7 @@
 			packageReferences = (
 				9299A7152C5525B8002EED17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				921446C72C5943A7008AB9AD /* XCRemoteSwiftPackageReference "CloudStorage" */,
+				921B27E32C789817009B5772 /* XCLocalSwiftPackageReference "../FastAppLibrary" */,
 			);
 			productRefGroup = 9258E69F2C4664B800B6DC82 /* Products */;
 			projectDirPath = "";
@@ -904,12 +918,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Source/Apps/ShareToWatch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WatchNotes;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Notes";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp.WatchApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -941,12 +956,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Source/Apps/ShareToWatch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WatchNotes;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Notes";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp.WatchApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -978,8 +994,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Notes";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1010,8 +1028,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Notes";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = live.ShareToWatch.iOSApp;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1163,6 +1183,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacOSApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Notes";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1193,6 +1215,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacOSApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Notes";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1267,6 +1291,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		921B27E32C789817009B5772 /* XCLocalSwiftPackageReference "../FastAppLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../FastAppLibrary;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		921446C72C5943A7008AB9AD /* XCRemoteSwiftPackageReference "CloudStorage" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1296,6 +1327,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 921446C72C5943A7008AB9AD /* XCRemoteSwiftPackageReference "CloudStorage" */;
 			productName = CloudStorage;
+		};
+		921B27E42C789818009B5772 /* FastAppLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FastAppLibrary;
 		};
 		9299A71C2C552713002EED17 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

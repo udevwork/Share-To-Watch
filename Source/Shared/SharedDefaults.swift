@@ -16,6 +16,6 @@ class SharedDefaults {
     }
     
     static func fetchLastNote() -> String {
-        return UD?.string(forKey: "lastNote") ?? "No notes saved"
+        return UD?.string(forKey: "lastNote") ?? "Swipe note to attach it"
     }
 }
